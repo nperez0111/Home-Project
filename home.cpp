@@ -53,20 +53,25 @@ pLenght=0;
         void addData (){
         cout<<"What is the address of the house?\n";
 getline(cin,hAddress);
-cout<<"What are the Dymensions of the Property? < Feet and Inches > \n"<<"Lenght \n";
+cout<<"What are the Dymensions of the Property? \n"<<"Lenght \n"<<"Feet \n";
 cin>>Propertylenghtfeet;
+cout<<"Inches \n";
 cin>> Propertylenghtinches;
-cout<<"Width \n";
+cout<<"Width \n"<<"Feet \n";
 cin>>Propertywidthfeet;
+cout<<"Inches \n";
 cin>>Propertywidthinches;
-cout<<"What are the Dymensions of the House? < Feet and Inches > \n"<<"Lenght \n";
+cout<<"What are the Dymensions of the House? \n"<<"Lenght \n"<<"Feet \n";
 cin>>hLenghtfeet;
+cout<<"Inches \n";
 cin>>hLenghtinches;
-cout<<"Width \n";
+cout<<"Width \n"<<"Feet \n";
 cin>>hWidthfeet;
+cout<<"Inches \n";
 cin>>hWidthinches;
-cout<<"Height \n";
+cout<<"Height \n"<<"Feet \n";
 cin>>hHeightfeet;
+cout<<"Inches \n";
 cin>>hHeightinches;
 cout<<"What is the color of the house? \n";
 cin>>hColor;
@@ -74,35 +79,66 @@ cout<<"How many rooms are in the house? \n";
 cin>>nRoom;
         }
 
-    void sethouseDymensionlenght(int hLenghtfeet, int  hLenghtinches ){
+    void sethouseDymensionlenghtinsert(int hLenghtfeet, int  hLenghtinches ){
      int temp;
     temp = hLenghtfeet * 12;
-    temp + hLenghtinches = hLenght;
+    hLenght = temp + hLenghtinches;
+    }
+    
+    void sethouseDymensionlenght(){
+     int temp;
+    temp = hLenghtfeet * 12;
+    hLenght = temp + hLenghtinches;
     }
 
-    void sethouseDymensionwidth(int hWidthfeet, int  hWidthinches ){
+    void sethouseDymensionwidthinsert(int hWidthfeet, int  hWidthinches ){
     int temp;
     temp = hWidthfeet * 12;
-    temp + hLenghtinches = hWidth;
+     hWidth = temp + hWidthinches;
+    }
+    
+    void sethouseDymensionwidth(){
+    int temp;
+    temp = hWidthfeet * 12;
+     hWidth = temp + hWidthinches;
+    }
+	
+    void sethouseDymensionheightinsert(int hHeightfeet, int  hHeightinches ){
+    int temp;
+    temp = hWidthfeet * 12;
+     hHeight = temp + hHeightinches; 
+    } 
+	
+	void sethouseDymensionheight(){
+    int temp;
+    temp = hWidthfeet * 12;
+     hHeight = temp + hHeightinches; 
+ 	}
+
+
+     void setPropertyDymensionlenghtinsert(int Propertylenghtfeet, int  Propertylenghtinches ){
+    int temp;
+    temp = hWidthfeet * 12;
+    pLenght = temp + Propertylenghtinches;
+    }
+    
+    void setPropertyDymensionlenght(){
+    int temp;
+    temp = hWidthfeet * 12;
+    pLenght = temp + Propertylenghtinches;
     }
 
-    void sethouseDymensionwidth(int hHeightfeet, int  hHeightinches ){
+
+    void setPropertyDymensionwidthinsert(int Propertywidthfeet, int  Propertywidthinches ){
     int temp;
     temp = hWidthfeet * 12;
-    temp + hLenghtinches = hHeight;
+    pWidth = temp +  Propertywidthinches;
     }
-
-     void setPropertyDymensionwidth(int Propertylenghtfeet, int  Propertylenghtinches ){
+    
+     void setPropertyDymensionwidth(){
     int temp;
     temp = hWidthfeet * 12;
-    temp + hLenghtinches = pLenght;
-    }
-
-
-     void setPropertyDymensionwidth(int Propertywidthfeet, int  Propertywidthinches ){
-    int temp;
-    temp = hWidthfeet * 12;
-    temp + hLenghtinches = pWidth;
+    pWidth = temp +  Propertywidthinches;
     }
 
     int gethouseDymensionlenght() {return hLenght;}
@@ -114,7 +150,7 @@ cin>>nRoom;
 
 
 
- /*
+ 
 //copy Constructor implemented in the main file
 Home(Home &blueprint){
 nRoom=blueprint.nRoom;
@@ -130,7 +166,7 @@ Propertylenghtinches=blueprint.Propertylenghtinches;
 Propertywidthfeet=blueprint.Propertywidthfeet;
 Propertywidthinches=blueprint.Propertywidthinches;
 hAddress=blueprint.hAddress;}
-
+/*
 //deconstructor
 -Home(){
 
@@ -159,6 +195,8 @@ cout<<"The number of rooms in the house are: "<<nRoom<<endl;
 int main(){
 Home ahome;
 ahome.addData();
+ahome.display();
+
 
 
 return 0;
