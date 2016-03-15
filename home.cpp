@@ -1,9 +1,133 @@
 #include <iostream>
 #include <string>
 using namespace std;
+class Room{
+	private:
+		string rColor;
+		int rLenght;
+		int  rLenghtfeet;
+		int  rLenghtinches;
+		int rWidth;
+		int rWidthfeet;
+		int rWidthinches;
+		int rHeight;
+		int rHeightfeet;
+		int rHeightinches;
+		string floorType;
+	public:
+		Room(){
+			
+	 	rColor[100]=' ';
+	 	rLenght=0;
+	 	rWidth=0;
+	 	rHeight=0;
+	 	floorType[100]=' ';	
+	    rHeightfeet=0;
+		rHeightinches=0;
+		rWidthfeet=0;
+	    rWidthinches=0;
+	    rLenghtfeet=0;
+	    rLenghtinches=0;
+		}
+		
+Room(Room &blueprint){
+rColor=blueprint.rColor;
+rLenght=blueprint.rLenght;
+rHeight=blueprint.rHeight;
+rWidth=blueprint.rWidth;
+floorType=blueprint.floorType;
 
+}
+		
+/*
+Deconstructor
+~Room();
+
+Operator overload
+
+*/
+
+ void addData(){
+ cout<<"What are the Dymensions of the Room? \n"<<endl<<"Lenght \n"<<"Feet \n";
+cin>>rLenghtfeet;
+cout<<"Inches \n";
+cin>>rLenghtinches;
+cout<<endl;
+cout<<"Width \n"<<"Feet \n";
+cin>>rWidthfeet;
+cout<<"Inches \n";
+cin>>rWidthinches;
+cout<<endl;
+cout<<"Height \n"<<"Feet \n ";
+cin>>rHeightfeet;
+cout<<"Inches \n";
+cin>>rHeightinches;
+cout<<"What is the Color of the Room? \n";
+cin>>rColor;
+cout<<"What is the floor type? \n ";
+cin>>floorType;
+ }
+ 
+ void setRoomDymensionlenghtinsert(int rLenghtfeet, int  rLenghtinches ){
+     int temp;
+    temp = rLenghtfeet * 12;
+    rLenght = temp + rLenghtinches;
+    }
+    
+    void setRoomDymensionlenght(){
+     int temp;
+    temp = rLenghtfeet * 12;
+    rLenght = temp + rLenghtinches;
+    }
+
+    void sethouseDymensionwidthinsert(int rWidthfeet, int  rWidthinches ){
+    int temp;
+    temp = rWidthfeet * 12;
+     rWidth = temp + rWidthinches;
+    }
+    
+    void sethouseDymensionwidth(){
+    int temp;
+    temp = rWidthfeet * 12;
+    rWidth = temp + rWidthinches;
+    }
+	
+    void sethouseDymensionheightinsert(int rHeightfeet, int  rHeightinches ){
+    int temp;
+    temp = rWidthfeet * 12;
+     rHeight = temp + rHeightinches; 
+    } 
+	
+	void sethouseDymensionheight(){
+    int temp;
+    temp = rWidthfeet * 12;
+     rHeight = temp + rHeightinches; 
+ 	}
+
+		
+	int getroomDymensionlenght() {return rLenght;}
+    int getroomDymensionheight() {return rHeight;}
+    int getroomDymensionwidth() {return rWidth;}
+    string getroomColor(){return rColor;}
+    string getfloorType(){return floorType;}
+	
+	
+	
+	void display(){
+
+
+cout<<"The Room Dymensions are: "<<rLenghtfeet<<" Feet and "<<rLenghtinches<<" Inches by "<<rHeightfeet<<" Feet and "<<rHeightinches<<" Inches by "<<rWidthfeet<<" Feet and "<<rWidthinches<<" Inches"<<endl;
+cout<<"The color of the room is: "<<rColor<<endl;
+cout<<"The Floor type is: " <<floorType<<endl;
+
+}
+	
+	
+	
+};
 
 class Home{
+
 private:
 int nRoom;
 int hLenghtfeet;
@@ -25,25 +149,24 @@ int Propertywidthinches;
 int pLenght;
 int pWidth;
 string hAddress;
-
-
+	Room aRoom;
 
     public:
         Home(){
-nRoom=0;
-hLenghtfeet=0;
-hLenghtinches=0;
-hWidthfeet=0;
-hWidthinches=0;
-hHeightfeet=0;
-  hHeightinches=0;
-hColor=" ";
-Propertylenghtfeet=0;
-Propertylenghtinches=0;
-Propertywidthfeet=0;
-Propertywidthinches=0;
-hAddress=" ";
-pLenght=0;
+	nRoom=0;
+	hLenghtfeet=0;
+	hLenghtinches=0;
+	hWidthfeet=0;
+	hWidthinches=0;
+	hHeightfeet=0;
+  	hHeightinches=0;
+	hColor=" ";
+	Propertylenghtfeet=0;
+	Propertylenghtinches=0;
+	Propertywidthfeet=0;
+	Propertywidthinches=0;
+	hAddress=" ";
+	pLenght=0;
              pWidth=0;
              hHeight=0;
     hWidth=0;
@@ -175,7 +298,7 @@ Propertywidthinches=blueprint.Propertywidthinches;
 hAddress=blueprint.hAddress;}
 /*
 //deconstructor
--Home(){
+~Home(){
 
 }
 
@@ -194,131 +317,13 @@ cout<<"The number of rooms in the house are: "<<nRoom<<endl;
 
 };
 
-class Room{
-	private:
-		string rColor;
-		int rLenght;
-		int  rLenghtfeet;
-		int  rLenghtinches;
-		int rWidth;
-		int rWidthfeet;
-		int rWidthinches;
-		int rHeight;
-		int rHeightfeet;
-		int rHeightinches;
-		string floorType;
-	public:
-		Room(){
-			
-	 	rColor[100]=' ';
-	 	rLenght=0;
-	 	rWidth=0;
-	 	rHeight=0;
-	 	floorType[100]=' ';	
-	    rHeightfeet=0;
-		rHeightinches=0;
-		rWidthfeet=0;
-	    rWidthinches=0;
-	    rLenghtfeet=0;
-	    rLenghtinches=0;
-		}
-		
-Room(Room &blueprint){
-rColor=blueprint.rColor;
-rLenght=blueprint.rLenght;
-rHeight=blueprint.rHeight;
-rWidth=blueprint.rWidth;
-floorType=blueprint.floorType;
 
-}
-		
-/*
-Deconstructor
--Room();
-
-Operator overload
-
-*/
-
- void addData(){
- cout<<"What are the Dymensions of the Room? \n"<<endl<<"Lenght \n"<<"Feet \n";
-cin>>rLenghtfeet;
-cout<<"Inches \n";
-cin>>rLenghtinches;
-cout<<endl;
-cout<<"Width \n"<<"Feet \n";
-cin>>rWidthfeet;
-cout<<"Inches \n";
-cin>>rWidthinches;
-cout<<endl;
-cout<<"Height \n"<<"Feet \n ";
-cin>>rHeightfeet;
-cout<<"Inches \n";
-cin>>rHeightinches;
-cout<<"What is the Color of the Room? \n";
-cin>>rColor;
-cout<<"What is the floor type? \n ";
-cin>>floorType;
- }
- 
- void setRoomDymensionlenghtinsert(int rLenghtfeet, int  rLenghtinches ){
-     int temp;
-    temp = rLenghtfeet * 12;
-    rLenght = temp + rLenghtinches;
-    }
-    
-    void setRoomDymensionlenght(){
-     int temp;
-    temp = rLenghtfeet * 12;
-    rLenght = temp + rLenghtinches;
-    }
-
-    void sethouseDymensionwidthinsert(int rWidthfeet, int  rWidthinches ){
-    int temp;
-    temp = rWidthfeet * 12;
-     rWidth = temp + rWidthinches;
-    }
-    
-    void sethouseDymensionwidth(){
-    int temp;
-    temp = rWidthfeet * 12;
-    rWidth = temp + rWidthinches;
-    }
-	
-    void sethouseDymensionheightinsert(int rHeightfeet, int  rHeightinches ){
-    int temp;
-    temp = rWidthfeet * 12;
-     rHeight = temp + rHeightinches; 
-    } 
-	
-	void sethouseDymensionheight(){
-    int temp;
-    temp = rWidthfeet * 12;
-     rHeight = temp + rHeightinches; 
- 	}
-
-		
-	int getroomDymensionlenght() {return rLenght;}
-    int getroomDymensionheight() {return rHeight;}
-    int getroomDymensionwidth() {return rWidth;}
-    string getroomColor(){return rColor;}
-    string getfloorType(){return floorType;}
-	
-	
-	
-	
-	
-	
-	
-};
 
 
 
 
 int main(){
-Home ahome;
-Room aroom;
-aroom.addData();
+
 
 
 
