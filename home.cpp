@@ -431,66 +431,80 @@ temp->addTail(head, temp);
 break;
 case 2: 
 
-	
-		if (head==0){
-			cout<<"There are no current houses on the community \n";
-			}
-		else {
-		
-			trav = head;
-			homeTrav = trav;
-			do{
-			
-				cout<<"This is House "<<houseNum + 1<<endl;
-				trav->getHouseAddressDisplay();
-				cout<<"Is this the right address? \n";
-				cin>>houseAns;
-				if (houseAns=="Yes"||houseAns=="Y"||houseAns=="yes"||houseAns=="y"){
-					check = false;
-					cout<<"This is the complete data of the house \n";
-					trav->display();
-					cout<<"Would you like to see the Rooms \n";
-					cin>>roomAns;
-					if (roomAns=="Yes"||roomAns=="Y"||roomAns=="yes"||roomAns=="y"){
-					trav2= head2;
-							do{trav2= head2;
-							cout<<"This is Room "<<roomNum + 1<<endl;
-							trav2->display();
-							cout<<endl;
-							trav2 = head2-> next;
-							roomNum++;
-							cout<<"Would you like to see the next room \n";
-							cin>>roomAns2;
-							
-						
-							
-						}while(trav2-> next != 0||roomAns=="Yes"||roomAns=="Y"||roomAns=="yes"||roomAns=="y");
-						
-					}
-					
-					else{
-						check= true;
-					}
-					
-				}
-					else  {
-						if (homeTrav->next !=0){
-					homeTrav = trav->next;
-					trav = homeTrav;
-					houseNum++;
-					check = false;
-					}
-						else {
-						cout<<"Sorry but the House you are looking for is not on our system \n";
-						check = true;
-									}
-						}
-				
-				
-				
-			}while(houseAns=="No"||houseAns=="no"||houseAns=="N"||houseAns=="n"||head -> next != 0||check==false);
-		
-		} 
+if (head==0){
+
+    cout<<"There are no current houses on the community n";
+
+}
+else {
+
+    trav = head;
+    homeTrav = trav;
+    do{
+
+        cout<<"This is House "<<houseNum + 1<<endl;
+        trav->getHouseAddressDisplay();
+        cout<<"Is this the right address? n";
+        cin>>houseAns;
+
+        if (houseAns=="Yes"||houseAns=="Y"||houseAns=="yes"||houseAns=="y"){
+
+            check = false;
+            cout<<"This is the complete data of the house n";
+            trav->display();
+            cout<<"Would you like to see the Rooms n";
+            cin>>roomAns;
+
+            if (roomAns=="Yes"||roomAns=="Y"||roomAns=="yes"||roomAns=="y"){
+
+                trav2= head2;
+
+                do{
+
+                    trav2= head2;
+                    cout<<"This is Room "<<roomNum + 1<<endl;
+                    trav2->display();
+                    cout<<endl;
+                    trav2 = head2-> next;
+                    roomNum++;
+                    cout<<"Would you like to see the next room n";
+                    cin>>roomAns2;
+
+                }
+                while(trav2-> next != 0||roomAns=="Yes"||roomAns=="Y"||roomAns=="yes"||roomAns=="y");
+            }
+            else{
+
+                check= true;
+
+            }
+
+        }
+        else  {
+
+            if (homeTrav->next !=0){
+
+                homeTrav = trav->next;
+                trav = homeTrav;
+                houseNum++;
+                check = false;
+
+            }
+
+            else {
+
+                cout<<"Sorry but the House you are looking for is not on our system n";
+                check = true;
+
+            }
+
+        }
+
+    }
+
+    while(houseAns=="No"||houseAns=="no"||houseAns=="N"||houseAns=="n"||head -> next != 0||check==false);
+    
+}
 break;
 case 3:
 return 0;
@@ -505,7 +519,3 @@ check=false;
 
 return 0;
 }
-
-
-
-
