@@ -15,9 +15,13 @@ int rHeight;
 int rHeightfeet;
 int rHeightinches;
 string floorType;
-Room * next;
+	
+
 public:
+		Room * next;
+	
 Room(){
+	
 rColor[100]=' ';
 rLenght=0;
 rWidth=0;
@@ -124,7 +128,7 @@ else
 Room * q;
 q=head;
 
-while(q -> next!=0)
+while(q -> next !=0)
 {
 q=q -> next;
 }
@@ -325,7 +329,7 @@ q->next=temp;
     int getpropertyDymensionwidth() {return pWidth;}
   int getnumberofRooms(){return nRoom;}
   string getroomColor(){return hColor;}
-string gethouseAdress(){return hAddress;}
+string gethouseAddress(){return hAddress;}
 
 
 
@@ -352,13 +356,14 @@ hAddress=blueprint.hAddress;}
  */
 //Print that Data
 void display(){
-
 cout<<"The address of the house is: "<<hAddress<<endl;
 cout<<"The Properties Dymensions are: "<<Propertylenghtfeet<<" Feet and "<<Propertylenghtinches<<" Inches by "<<Propertywidthfeet<<" Feet and "<<Propertywidthinches<<" Inches"<<endl;
 cout<<"The Dymensions of the House are: "<<hLenghtfeet<<" Feet and "<<hLenghtinches<<" Inches by "<<hHeightfeet<<" Feet and "<<hHeightinches<<" Inches by "<<hWidthfeet<<" Feet and "<<hWidthinches<<" Inches"<<endl;
 cout<<"The color of the House is: "<<hColor<<endl;
 cout<<"The number of rooms in the house are: "<<nRoom<<endl;
-
+}
+void getHouseAddressDisplay(){
+cout<<"The address of the house is: "<<" "<<hAddress<<endl;
 }
 
 };
@@ -371,8 +376,9 @@ int main(){
 
 Home aHome;
 Room aRoom;
-int menuAsn;
+int menuAsn = 0;
 bool check=false;
+bool end2 = false;
 Home * head;
 Home * temp;
 Room * head2;
@@ -382,9 +388,17 @@ head = 0;
 temp = 0;
 head2 = 0;
 temp2 =0;
-Home * temptrav;
+int houseNum = 0;
+string houseAns;
+Room * trav2;
 Home * trav;
-temptrav = head;
+Home * homeTrav;
+homeTrav = 0;
+trav = 0;
+string roomAns;
+int roomNum=0;
+string roomAns2;
+
 
 
 
@@ -397,7 +411,7 @@ cout<<"1) Add a House \n"<<"2) Display the Houses and Rooms \n"<<"3) Close Progr
 cin>>menuAsn;
 switch (menuAsn){
 case 1:
-cout<<"Add a House and Rooms\n";
+cout<<"Add a House with Rooms\n";
             temp = new Home;
             temp2 = new Room;
 
@@ -415,28 +429,68 @@ temp->addData();
 }
 temp->addTail(head, temp);
 break;
-case 2:
+case 2: 
 
+	
 		if (head==0){
 			cout<<"There are no current houses on the community \n";
 			}
 		else {
-			/* cout<<"This is the house \n";
-			head->display();
-			cout<<"Is this the Right house" */
-			cout<<"This are the Current Home Adresses \n";
-			/* Fix this NOWWWWWWWWWWWWWWWWWWW
-			while (head->next != 0){
-				cout<<"test \ n";
-						trav=temptrav;
-						trav->gethouseAdress();
-						temptrav=head->next;
-			}
-			cout<<"End of while loop \n"; */ 
+		
+			trav = head;
+			homeTrav = trav;
+			do{
 			
-			//Insert search algoright here, then searchg the list by adresses 
-			
-		}
+				cout<<"This is House "<<houseNum + 1<<endl;
+				trav->getHouseAddressDisplay();
+				cout<<"Is this the right address? \n";
+				cin>>houseAns;
+				if (houseAns=="Yes"||houseAns=="Y"||houseAns=="yes"||houseAns=="y"){
+					check = false;
+					cout<<"This is the complete data of the house \n";
+					trav->display();
+					cout<<"Would you like to see the Rooms \n";
+					cin>>roomAns;
+					if (roomAns=="Yes"||roomAns=="Y"||roomAns=="yes"||roomAns=="y"){
+					trav2= head2;
+							do{trav2= head2;
+							cout<<"This is Room "<<roomNum + 1<<endl;
+							trav2->display();
+							cout<<endl;
+							trav2 = head2-> next;
+							roomNum++;
+							cout<<"Would you like to see the next room \n";
+							cin>>roomAns2;
+							
+						
+							
+						}while(trav2-> next != 0||roomAns=="Yes"||roomAns=="Y"||roomAns=="yes"||roomAns=="y");
+						
+					}
+					
+					else{
+						check= true;
+					}
+					
+				}
+					else  {
+						if (homeTrav->next !=0){
+					homeTrav = trav->next;
+					trav = homeTrav;
+					houseNum++;
+					check = false;
+					}
+						else {
+						cout<<"Sorry but the House you are looking for is not on our system \n";
+						check = true;
+									}
+						}
+				
+				
+				
+			}while(houseAns=="No"||houseAns=="no"||houseAns=="N"||houseAns=="n"||head -> next != 0||check==false);
+		
+		} 
 break;
 case 3:
 return 0;
