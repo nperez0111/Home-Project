@@ -488,8 +488,8 @@ case 2:
 				
 				
 				
-			}while(houseAns=="No"||houseAns=="no"||houseAns=="N"||houseAns=="n"||head -> next != 0||check==false);
-		
+			}
+    while((houseAns=="No"||houseAns=="no"||houseAns=="N"||houseAns=="n") && (head -> next != 0) && check==false);
 		} 
 break;
 case 3:
